@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بن عتمة | قهوة وهيل ومكسرات وبهارات</title>
+    <meta name="description" content="بن عتمة - متخصصون في أجود أنواع البن والهيل والمكسرات والبهارات. نخدم الرياض وكامل المملكة العربية السعودية">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --coffee-dark: #1a0f0a;
+            --coffee-rich: #2d1810;
+            --coffee-medium: #4a2c1c;
+            --gold-primary: #c9a227;
+            --gold-light: #dfc35a;
+            --gold-glow: #f4d03f;
+            --cream: #f5f0e6;
+            --cream-dark: #e8dcc8;
+            --spice-red: #8b3a3a;
+            --cardamom: #4a5d3a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--coffee-dark);
+            color: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* Decorative Background Pattern */
+        .pattern-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L35 15L45 15L37 22L40 32L30 26L20 32L23 22L15 15L25 15Z' fill='%23c9a227' fill-opacity='1'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(201, 162, 39, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(74, 44, 28, 0.4) 0%, transparent 40%),
+                radial-gradient(ellipse at 20% 90%, rgba(139, 58, 58, 0.2) 0%, transparent 30%),
+                var(--coffee-dark);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--coffee-dark), var(--gold-primary), var(--gold-light), var(--gold-primary), var(--coffee-dark));
+        }
+
+        /* Logo & Brand */
+        .brand {
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 30px rgba(201, 162, 39, 0.3));
+        }
+
+        .brand-name {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 700;
+            color: var(--gold-primary);
+            text-shadow: 
+                0 0 40px rgba(201, 162, 39, 0.4),
+                0 4px 8px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand-tagline {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--cream-dark);
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            opacity: 0.9;
+        }
+
+        /* Decorative Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .divider-line {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+
+        .divider-icon {
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+        }
+
+        /* Products Section */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            width: 100%;
+            padding: 0 1rem;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .product-card {
+            background: linear-gradient(145deg, rgba(45, 24, 16, 0.8), rgba(26, 15, 10, 0.9));
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(201, 162, 39, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(201, 162, 39, 0.5);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(201, 162, 39, 0.1);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(201, 162, 39, 0.3));
+        }
+
+        .product-name {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.6rem;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            font-size: 0.95rem;
+            color: var(--cream-dark);
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* Features Section */
+        .features {
+            margin-top: 4rem;
+            padding: 3rem 1rem;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--coffee-medium), var(--coffee-rich));
+            border: 2px solid var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 1.1rem;
+            color: var(--cream);
+        }
+
+        .feature-text strong {
+            color: var(--gold-light);
+            display: block;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(45, 24, 16, 0.5));
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .contact-title {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--coffee-medium), var(--coffee-rich));
+            border: 2px solid var(--gold-primary);
+            border-radius: 50px;
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: var(--gold-primary);
+            color: var(--coffee-dark);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+        }
+
+        .contact-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Coming Soon Badge */
+        .coming-soon {
+            margin-top: 3rem;
+            padding: 1.5rem 3rem;
+            background: rgba(201, 162, 39, 0.1);
+            border: 1px dashed var(--gold-primary);
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .coming-soon-text {
+            font-size: 1rem;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon-title {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.4rem;
+            color: var(--cream);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(201, 162, 39, 0.2);
+            margin-top: 2rem;
+        }
+
+        .footer-text {
+            color: var(--cream-dark);
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold-light);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .product-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .product-icon {
+                font-size: 2.5rem;
+            }
+
+            .product-name {
+                font-size: 1.2rem;
+            }
+
+            .features-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern-overlay"></div>
+
+    <section class="hero">
+        <div class="brand">
+            <div class="logo-icon floating">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Coffee Cup Base -->
+                    <path d="M20 35 L25 85 Q26 90 35 90 L65 90 Q74 90 75 85 L80 35" 
+                          stroke="#c9a227" stroke-width="3" fill="none"/>
+                    <!-- Cup Handle -->
+                    <path d="M80 40 Q95 42 95 55 Q95 68 80 70" 
+                          stroke="#c9a227" stroke-width="3" fill="none"/>
+                    <!-- Steam Lines -->
+                    <path d="M35 25 Q38 15 35 5" stroke="#c9a227" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                    <path d="M50 28 Q53 18 50 8" stroke="#c9a227" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                    <path d="M65 25 Q68 15 65 5" stroke="#c9a227" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                    <!-- Decorative Star -->
+                    <path d="M50 50 L52 56 L58 56 L53 60 L55 66 L50 62 L45 66 L47 60 L42 56 L48 56 Z" 
+                          fill="#c9a227" opacity="0.5"/>
+                </svg>
+            </div>
+            <h1 class="brand-name">بن عتمة</h1>
+            <p class="brand-tagline">أصالة الطعم · جودة الاختيار</p>
+        </div>
+
+        <div class="divider">
+            <span class="divider-line"></span>
+            <span class="divider-icon">✦</span>
+            <span class="divider-line"></span>
+        </div>
+
+        <div class="products">
+            <div class="product-card">
+                <span class="product-icon">☕</span>
+                <h3 class="product-name">البُن</h3>
+                <p class="product-desc">أجود أنواع البن العربي والبرازيلي</p>
+            </div>
+            <div class="product-card">
+                <span class="product-icon">🌿</span>
+                <h3 class="product-name">الهيل</h3>
+                <p class="product-desc">هيل فاخر بنكهة أصيلة</p>
+            </div>
+            <div class="product-card">
+                <span class="product-icon">🥜</span>
+                <h3 class="product-name">المكسرات</h3>
+                <p class="product-desc">تشكيلة متنوعة من أفخر المكسرات</p>
+            </div>
+            <div class="product-card">
+                <span class="product-icon">✨</span>
+                <h3 class="product-name">البهارات</h3>
+                <p class="product-desc">بهارات طازجة بخلطات مميزة</p>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <div class="feature-text">
+                        <strong>جودة عالية</strong>
+                        منتقاة بعناية
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <div class="feature-text">
+                        <strong>توصيل سريع</strong>
+                        لكافة أنحاء المملكة
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💯</div>
+                    <div class="feature-text">
+                        <strong>أسعار منافسة</strong>
+                        جملة وتجزئة
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h2 class="contact-title">تواصل معنا</h2>
+            <div class="contact-buttons">
+                <a href="https://wa.me/966XXXXXXXXX" class="contact-btn" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    واتساب
+                </a>
+                <a href="tel:+966XXXXXXXXX" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    اتصل بنا
+                </a>
+            </div>
+
+            <div class="coming-soon">
+                <p class="coming-soon-text">قريباً</p>
+                <p class="coming-soon-title">🎨 موقعنا الجديد بحلة مميزة</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="location">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                الرياض، المملكة العربية السعودية
+            </div>
+            <p class="footer-text">© 2024 بن عتمة - جميع الحقوق محفوظة</p>
+        </footer>
+    </section>
+
+</body>
+</html>
